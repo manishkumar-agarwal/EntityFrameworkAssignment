@@ -1,6 +1,6 @@
 ﻿namespace TelephoneSystemClasses
 {
-    class CustomerBillingHistory
+    public class CustomerBillingHistory
     {
     }
 }
