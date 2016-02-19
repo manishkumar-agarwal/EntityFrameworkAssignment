@@ -94,18 +94,18 @@ namespace DBWrapper
             return TelephoneSystemDBContext.Customers.Where(customer => customer.EmployeeId == employeeId).ToList();
         }
 
-        public static List<SqlDataReader> GetBonusForEmployee(int employeeId)
+        public static List<EmployeeSummary> GetBonusForEmployee(int employeeId)
         {
-            /*
-            //return TelephoneSystemDBContext.Database.ExecuteSqlCommand("EXEC [dbo].[uspGetBonusForEmployee] {0}", employeeId);
-
-            */
 
             return TelephoneSystemDBContext.Database.
-                SqlQuery<SqlDataReader>("EXEC [dbo].[uspGetBonusForEmployee] {0}", employeeId).ToList();
-            //return null;
+                SqlQuery<EmployeeSummary>("EXEC [dbo].[uspGetBonusForEmployee] {0}", employeeId).ToList();
 
         }
 
+        public static List<EmployeeSummary> GetSummaryForEmployees()
+        {
+            return TelephoneSystemDBContext.Database.
+                SqlQuery<EmployeeSummary>("EXEC [dbo].[uspGetSummaryForEmployees] ").ToList();
+        }
     }
 }

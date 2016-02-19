@@ -63,13 +63,6 @@ namespace UserInterfaceFunctions
             Console.WriteLine();
         }
 
-        internal static void DisplayEmployeeBonus(List<SqlDataReader> employeeBonus)
-        {
-            foreach(var employee in employeeBonus)
-            {
-                DisplayQueryResult(employee);
-            }
-        }
     }
 
 }

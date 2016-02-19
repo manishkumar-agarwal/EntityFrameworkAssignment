@@ -98,14 +98,15 @@ namespace UserInterfaceFunctions
             var employeeId = UserInterfaceSetupFunctions.GetEmployeeId();
             
             var employeeBonus = DBInterface.GetBonusForEmployee(employeeId);
-            UserInterfaceDisplayFunctions.DisplayEmployeeBonus(employeeBonus);
+            UserInterfaceDisplayFunctions.DisplayList(employeeBonus);
 
         }
 
-        internal static SqlDataReader DisplayTransactionSummaryForEmployees()
+        internal static void DisplayTransactionSummaryForEmployees()
         {
-            return null;
-            //return DBInterface.GetSummaryForEmployees();
+            var summaryofEmployees = DBInterface.GetSummaryForEmployees();
+
+            UserInterfaceDisplayFunctions.DisplayList(summaryofEmployees);
         }
     }
 }
