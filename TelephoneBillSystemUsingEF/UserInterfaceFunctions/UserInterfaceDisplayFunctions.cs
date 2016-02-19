@@ -4,41 +4,35 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TelephoneSystemClasses;
 
 namespace UserInterfaceFunctions
 {
     class UserInterfaceDisplayFunctions
     {
-        internal static void DisplayQueryResult(SqlDataReader queryResult)
+
+        internal static void DisplayList<T>(List<T> displayList)
         {
-            if (!queryResult.HasRows)
+            if (displayList.Count == 0)
             {
-                Console.WriteLine("No data found. Please retry with a different Criteria");
-                queryResult.Close();
+                Console.WriteLine("There are no details to Display");
                 return;
             }
 
-            DisplayQueryResultHeader(queryResult);
-
-            while (queryResult.Read())
+            foreach (var displayItem in displayList)
             {
-                for (int i = 0; i < queryResult.FieldCount; i++)
-                {
-                    Console.Write("\t{0}\t", queryResult[i]);
-                }
-                Console.WriteLine();
-
+                Console.WriteLine(displayItem.ToString());
             }
-            queryResult.Close();
         }
 
-        private static void DisplayQueryResultHeader(SqlDataReader queryResult)
+        internal static void Display<T>(T displayItem)
         {
-            for (int i = 0; i < queryResult.FieldCount; i++)
+            if(displayItem == null)
             {
-                Console.Write("{0}\t", queryResult.GetName(i));
+                Console.WriteLine("Details not found!! Please try with a different Criteria");
+                return;
             }
-            Console.WriteLine();
+            Console.WriteLine(displayItem.ToString());
         }
     }
 }

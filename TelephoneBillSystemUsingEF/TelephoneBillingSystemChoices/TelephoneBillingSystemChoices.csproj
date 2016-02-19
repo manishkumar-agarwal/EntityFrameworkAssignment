@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BillPaymentMode.cs" />
+    <Compile Include="CustomersIdentity.cs" />
     <Compile Include="TelephoneBillingSystemChoicesEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

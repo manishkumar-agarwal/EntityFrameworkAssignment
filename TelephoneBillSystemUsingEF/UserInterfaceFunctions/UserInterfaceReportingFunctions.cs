@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 using TelephoneBillingSystemChoices;
+using TelephoneSystemClasses;
 
 namespace UserInterfaceFunctions
 {
@@ -10,24 +12,21 @@ namespace UserInterfaceFunctions
         {
             try
             {
-                SqlDataReader queryResult = null;
                 switch (userChoice)
                 {
                     case TelephoneBillSystemChoices.DisplayAllCustomers:
                     case TelephoneBillSystemChoices.DisplayCustomerByID:
                     case TelephoneBillSystemChoices.DisplayCustomerBillingHistory:
-                        queryResult = CustomerRelatedReporting(userChoice);
+                         CustomerRelatedReporting(userChoice);
                         break;
                     case TelephoneBillSystemChoices.DisplayAllEmployees:
                     case TelephoneBillSystemChoices.DisplayEmployeeByID:
                     case TelephoneBillSystemChoices.DisplayCustomersOfEmployee:
                     case TelephoneBillSystemChoices.DisplayTransactionSummaryforEmployees:
                     case TelephoneBillSystemChoices.CalculateEmployeeBonus:
-                        queryResult = EmployeeRelatedReporting(userChoice);
+                         EmployeeRelatedReporting(userChoice);
                         break;
                 }
-
-                UserInterfaceDisplayFunctions.DisplayQueryResult(queryResult);
             }
             catch (SqlException ex)
             {
@@ -35,47 +34,45 @@ namespace UserInterfaceFunctions
             }
         }
 
-        private static SqlDataReader CustomerRelatedReporting(TelephoneBillSystemChoices userChoice)
+        private static void CustomerRelatedReporting(TelephoneBillSystemChoices userChoice)
         {
-            SqlDataReader queryResult = null;
+            
             switch (userChoice)
             {
                 case TelephoneBillSystemChoices.DisplayAllCustomers:
-                    queryResult = UserInterfaceToDbAccessFunctions.DisplayAllCustomers();
+                     UserInterfaceToDbAccessFunctions.DisplayAllCustomers();
                     break;
                 case TelephoneBillSystemChoices.DisplayCustomerByID:
-                    queryResult = UserInterfaceToDbAccessFunctions.DisplayCustomerByID();
+                     UserInterfaceToDbAccessFunctions.DisplayCustomerByID();
                     break;
                 case TelephoneBillSystemChoices.DisplayCustomerBillingHistory:
-                    queryResult = UserInterfaceToDbAccessFunctions.DisplayCustomerBillHistory();
+                    UserInterfaceToDbAccessFunctions.DisplayCustomerBillHistory();
                     break;
             }
-            return queryResult;
 
         }
 
-        private static SqlDataReader EmployeeRelatedReporting(TelephoneBillSystemChoices userChoice)
+        private static void EmployeeRelatedReporting(TelephoneBillSystemChoices userChoice)
         {
-            SqlDataReader queryResult = null;
+
             switch (userChoice)
             {
                 case TelephoneBillSystemChoices.DisplayAllEmployees:
-                    queryResult = UserInterfaceToDbAccessFunctions.DisplayAllEmployees();
+                     UserInterfaceToDbAccessFunctions.DisplayAllEmployees();
                     break;
                 case TelephoneBillSystemChoices.DisplayEmployeeByID:
-                    queryResult = UserInterfaceToDbAccessFunctions.DisplayEmployeeByID();
+                     UserInterfaceToDbAccessFunctions.DisplayEmployeeByID();
                     break;
                 case TelephoneBillSystemChoices.DisplayCustomersOfEmployee:
-                    queryResult = UserInterfaceToDbAccessFunctions.DisplayEmployeesCustomers();
+                     UserInterfaceToDbAccessFunctions.DisplayEmployeesCustomers();
                     break;
                 case TelephoneBillSystemChoices.DisplayTransactionSummaryforEmployees:
-                    queryResult = UserInterfaceToDbAccessFunctions.DisplayTransactionSummaryForEmployees();
+                     UserInterfaceToDbAccessFunctions.DisplayTransactionSummaryForEmployees();
                     break;
                 case TelephoneBillSystemChoices.CalculateEmployeeBonus:
-                    queryResult = UserInterfaceToDbAccessFunctions.DisplayBonusForEmployee();
+                     UserInterfaceToDbAccessFunctions.DisplayBonusForEmployee();
                     break;
             }
-            return queryResult;
         }
     }
 }

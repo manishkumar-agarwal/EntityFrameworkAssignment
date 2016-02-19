@@ -1,24 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using DBWrapper;
+using TelephoneSystemClasses;
 
 namespace UserInterfaceFunctions
 {
     class UserInterfaceToDbAccessFunctions
     {
-        internal static SqlDataReader DisplayAllCustomers()
+        internal static void DisplayAllCustomers()
         {
-            return DBInterface.GetAllCustomers();
+             List<Customers> customerList = DBInterface.GetAllCustomers();
+            UserInterfaceDisplayFunctions.DisplayList(customerList);
         }
 
-        internal static SqlDataReader DisplayCustomerByID()
+        internal static void DisplayCustomerByID()
         {
             var customerMobileNumber = UserInterfaceSetupFunctions.GetMobileNumber();
-            return DBInterface.GetCustomerByID(customerMobileNumber);
+            Customers customer = DBInterface.GetCustomerByID(customerMobileNumber);
+            UserInterfaceDisplayFunctions.Display(customer);
         }
 
         internal static void AddCustomer()
@@ -41,18 +41,18 @@ namespace UserInterfaceFunctions
             var customerMobileNumber = UserInterfaceSetupFunctions.GetMobileNumber();
             var billPaymentMode = UserInterfaceSetupFunctions.GetBillPaymemtMode();
             var billAmount = UserInterfaceSetupFunctions.GetBillAmount();
-            int insertCount = DBInterface.RecordBillPaymentForCustomer(customerMobileNumber, billPaymentMode, billAmount);
+           /* int insertCount = DBInterface.RecordBillPaymentForCustomer(customerMobileNumber, billPaymentMode, billAmount);
             if (insertCount > 0)
             {
                 Console.WriteLine("Inserted Customer Bill Successfully");
-            }
+            }*/
         }
 
         internal static void UpdateCustomer()
         {
             var customerMobileNumber = UserInterfaceSetupFunctions.GetMobileNumber();
             var customerEmail = UserInterfaceSetupFunctions.GetCustomerEmail();
-            int updateCount = DBInterface.UpdateCustomer(customerMobileNumber, customerEmail);
+           /* int updateCount = DBInterface.UpdateCustomer(customerMobileNumber, customerEmail);
 
             if(updateCount == 0)
             {
@@ -61,41 +61,48 @@ namespace UserInterfaceFunctions
             else
             {
                 Console.WriteLine("Updated Customer successfully");
-            }
+            }*/
         }
 
         internal static SqlDataReader DisplayCustomerBillHistory()
         {
             var customerMobileNumber = UserInterfaceSetupFunctions.GetMobileNumber();
-            return DBInterface.GetCustomerBillHistory(customerMobileNumber);
+            return null;
+            // return DBInterface.GetCustomerBillHistory(customerMobileNumber);
         }
 
-        internal static SqlDataReader DisplayAllEmployees()
+        internal static void DisplayAllEmployees()
         {
-            return DBInterface.GetAllEmployees();
+            List<Employees> employeeList = DBInterface.GetAllEmployees();
+            UserInterfaceDisplayFunctions.DisplayList(employeeList);
+
         }
 
-        internal static SqlDataReader DisplayEmployeeByID()
+        internal static void DisplayEmployeeByID()
         {
             var employeeId = UserInterfaceSetupFunctions.GetEmployeeId();
-            return DBInterface.GetEmployeeById(employeeId);
+            var employee = DBInterface.GetEmployeeById(employeeId);
+            UserInterfaceDisplayFunctions.Display(employee);
         }
 
         internal static SqlDataReader DisplayEmployeesCustomers()
         {
             var employeeId = UserInterfaceSetupFunctions.GetEmployeeId();
-            return DBInterface.GetCutomersForEmployee(employeeId);
+            return null;
+            //return DBInterface.GetCutomersForEmployee(employeeId);
         }
 
         internal static SqlDataReader DisplayBonusForEmployee()
         {
             var employeeId = UserInterfaceSetupFunctions.GetEmployeeId();
-            return DBInterface.GetBonusForEmployee(employeeId);
+            return null;
+            //return DBInterface.GetBonusForEmployee(employeeId);
         }
 
         internal static SqlDataReader DisplayTransactionSummaryForEmployees()
         {
-            return DBInterface.GetSummaryForEmployees();
+            return null;
+            //return DBInterface.GetSummaryForEmployees();
         }
     }
 }

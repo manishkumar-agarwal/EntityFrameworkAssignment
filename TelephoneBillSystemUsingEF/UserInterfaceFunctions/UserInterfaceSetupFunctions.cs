@@ -1,4 +1,5 @@
 ﻿using System;
+using TelephoneBillingSystemChoices;
 using UserInputFunctions;
 
 namespace UserInterfaceFunctions
@@ -53,6 +54,7 @@ namespace UserInterfaceFunctions
 
             }
 
+            //return (CustomersIdentity)Enum.Parse(typeof(CustomersIdentity), customerIdentity);
             return customerIdentity;
         }
 

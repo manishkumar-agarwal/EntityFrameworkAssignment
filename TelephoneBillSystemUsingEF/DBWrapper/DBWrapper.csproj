@@ -41,6 +41,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,18 +50,92 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBInterface.cs" />
+    <Compile Include="DBInterfaceSetup.cs" />
+    <Compile Include="Migrations\201602181313247_InitialMigration.cs" />
+    <Compile Include="Migrations\201602181313247_InitialMigration.Designer.cs">
+      <DependentUpon>201602181313247_InitialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602190527579_updatedCustomers.cs" />
+    <Compile Include="Migrations\201602190527579_updatedCustomers.Designer.cs">
+      <DependentUpon>201602190527579_updatedCustomers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602190557035_updatingCustomers.cs" />
+    <Compile Include="Migrations\201602190557035_updatingCustomers.Designer.cs">
+      <DependentUpon>201602190557035_updatingCustomers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602190630499_changeCustomerIdentityfield.cs" />
+    <Compile Include="Migrations\201602190630499_changeCustomerIdentityfield.Designer.cs">
+      <DependentUpon>201602190630499_changeCustomerIdentityfield.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602190707109_updatedCustomerClass.cs" />
+    <Compile Include="Migrations\201602190707109_updatedCustomerClass.Designer.cs">
+      <DependentUpon>201602190707109_updatedCustomerClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602190722110_changedCutomerClass.cs" />
+    <Compile Include="Migrations\201602190722110_changedCutomerClass.Designer.cs">
+      <DependentUpon>201602190722110_changedCutomerClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602190728308_changedModileNumberDataAnnotation.cs" />
+    <Compile Include="Migrations\201602190728308_changedModileNumberDataAnnotation.Designer.cs">
+      <DependentUpon>201602190728308_changedModileNumberDataAnnotation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602190742372_revertedBackMobileNumberSetup.cs" />
+    <Compile Include="Migrations\201602190742372_revertedBackMobileNumberSetup.Designer.cs">
+      <DependentUpon>201602190742372_revertedBackMobileNumberSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602190746270_revertedBackMobileNumbertoIdentity.cs" />
+    <Compile Include="Migrations\201602190746270_revertedBackMobileNumbertoIdentity.Designer.cs">
+      <DependentUpon>201602190746270_revertedBackMobileNumbertoIdentity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="TelephoneSystemDBContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
+    <ProjectReference Include="..\TelephoneBillingSystemChoices\TelephoneBillingSystemChoices.csproj">
+      <Project>{9c6757df-ccf1-45b1-974d-1929c60143db}</Project>
+      <Name>TelephoneBillingSystemChoices</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TelephoneSystemClasses\TelephoneSystemClasses.csproj">
       <Project>{80cdafa8-33b2-4d98-a785-99a728125979}</Project>
       <Name>TelephoneSystemClasses</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201602181313247_InitialMigration.resx">
+      <DependentUpon>201602181313247_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602190527579_updatedCustomers.resx">
+      <DependentUpon>201602190527579_updatedCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602190557035_updatingCustomers.resx">
+      <DependentUpon>201602190557035_updatingCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602190630499_changeCustomerIdentityfield.resx">
+      <DependentUpon>201602190630499_changeCustomerIdentityfield.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602190707109_updatedCustomerClass.resx">
+      <DependentUpon>201602190707109_updatedCustomerClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602190722110_changedCutomerClass.resx">
+      <DependentUpon>201602190722110_changedCutomerClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602190728308_changedModileNumberDataAnnotation.resx">
+      <DependentUpon>201602190728308_changedModileNumberDataAnnotation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602190742372_revertedBackMobileNumberSetup.resx">
+      <DependentUpon>201602190742372_revertedBackMobileNumberSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602190746270_revertedBackMobileNumbertoIdentity.resx">
+      <DependentUpon>201602190746270_revertedBackMobileNumbertoIdentity.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -30,7 +30,7 @@ namespace UserInputFunctions
         {
             var isValidMobileNumber = true;
 
-            if(mobileNumber < 1000000000 || mobileNumber > 2000000000)
+            if( mobileNumber > 2000000000)
             {
                 isValidMobileNumber = false;
             }

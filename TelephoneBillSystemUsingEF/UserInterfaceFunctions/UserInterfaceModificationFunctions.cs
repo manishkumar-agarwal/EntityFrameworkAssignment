@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.SqlClient;
 using TelephoneBillingSystemChoices;
+using System.Data.Entity;
 
 namespace UserInterfaceFunctions
 {
@@ -29,6 +30,6 @@ namespace UserInterfaceFunctions
             {
                 Console.WriteLine("Exception Occured" + ex.Message);
             }
+            }
         }
-    }
 }
