@@ -88,6 +88,10 @@
     <Compile Include="Migrations\201602190746270_revertedBackMobileNumbertoIdentity.Designer.cs">
       <DependentUpon>201602190746270_revertedBackMobileNumbertoIdentity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201602191044253_UpdatingCustomerBillingHistory.cs" />
+    <Compile Include="Migrations\201602191044253_UpdatingCustomerBillingHistory.Designer.cs">
+      <DependentUpon>201602191044253_UpdatingCustomerBillingHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="TelephoneSystemDBContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -129,6 +133,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201602190746270_revertedBackMobileNumbertoIdentity.resx">
       <DependentUpon>201602190746270_revertedBackMobileNumbertoIdentity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602191044253_UpdatingCustomerBillingHistory.resx">
+      <DependentUpon>201602191044253_UpdatingCustomerBillingHistory.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
